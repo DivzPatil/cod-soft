@@ -1,0 +1,30 @@
+ // guessingGame.cpp: David Noelte
+// Description: The player has to guess the secret number and he got 10 attempts
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int secretNumber = 1235;
+	int userInput = 0;
+  int attempts = 0;
+
+	cout << "Hi Player. Please guess the Secret Number" << endl;
+	do {
+		if(!(cin >> userInput)) {
+			cout << "Only enter numeric numbers" << endl;
+			cin.clear();
+			cin.ignore(10000, '\n');
+		}
+		if(userInput != secretNumber && userInput > secretNumber) {
+			cout << "You guessed wrong and to high, try again!" << endl;
+			cin.clear();
+		} else {
+			cout << "You guessed wrong and to low, try again!" << endl;
+			cin.clear();
+		}
+	} while (userInput != secretNumber);
+
+	cout << "You guessed write! The Secret Number was " << secretNumber << endl;
+	return 0;
+}
